@@ -9,12 +9,12 @@ class Marfa < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/withmarfa/marfa/releases/download/v0.0.49/marfa-0.0.49-darwin-arm64.tar.gz"
-      sha256 "b101656ada22dfaeb306cf138f1765f8a761e8d15170a87505f83c56a8d47d5e"
+      url "https://github.com/withmarfa/marfa/releases/download/v0.0.50/marfa-0.0.50-darwin-arm64.tar.gz"
+      sha256 "e5a6023ab4e9e4f2b3203b17d14a543340143728d1a64b698cad5b1cb138447b"
     end
     on_intel do
-      url "https://github.com/withmarfa/marfa/releases/download/v0.0.49/marfa-0.0.49-darwin-x86_64.tar.gz"
-      sha256 "3f497e2d0989654cda54cfd004a9e690e462f2d2ab1898c5c1e5831b0af6436f"
+      url "https://github.com/withmarfa/marfa/releases/download/v0.0.50/marfa-0.0.50-darwin-x86_64.tar.gz"
+      sha256 "0b8aec53288425ccb1c35818671da4f7c9ee479345b714dabeba28a5b4d3ac42"
     end
   end
 
