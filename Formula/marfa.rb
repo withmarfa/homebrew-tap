@@ -9,19 +9,19 @@ class Marfa < Formula
     depends_on arch: :arm64
 
     on_arm do
-      url "https://github.com/withmarfa/marfa/releases/download/v0.0.84/marfa-0.0.84-darwin-arm64.tar.gz"
-      sha256 "c8f5310a709c7d9701e2bee572dac357b925213588a56376369c406ff8343fcb"
+      url "https://github.com/withmarfa/marfa/releases/download/v0.0.86/marfa-0.0.86-darwin-arm64.tar.gz"
+      sha256 "b15d095b624285375f7c08d057fbbace8420fbcd25a77ab2c4363822cf13aaba"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/withmarfa/marfa/releases/download/v0.0.84/marfa-0.0.84-linux-aarch64.tar.gz"
-      sha256 "90b45bffdf5c75c8ef03ccee523e2067237868cbbaf838a1d81d230bf3e8db31"
+      url "https://github.com/withmarfa/marfa/releases/download/v0.0.86/marfa-0.0.86-linux-aarch64.tar.gz"
+      sha256 "ac9350daf67dc97e9fa07be3c43642c8cb5855715c5345e74e1000fac9899e3e"
     end
     on_intel do
-      url "https://github.com/withmarfa/marfa/releases/download/v0.0.84/marfa-0.0.84-linux-x86_64.tar.gz"
-      sha256 "98025e94fa087e7570d80ea9e2c95477ef5956dc437edc28d320abc83794fbd3"
+      url "https://github.com/withmarfa/marfa/releases/download/v0.0.86/marfa-0.0.86-linux-x86_64.tar.gz"
+      sha256 "f9c18f4c3e21ce0b434e191895170fe702ca0b820c5c46cee962a33467eb48e6"
     end
   end
 
