@@ -9,24 +9,27 @@ class Marfa < Formula
     depends_on arch: :arm64
 
     on_arm do
-      url "https://github.com/withmarfa/marfa/releases/download/v0.0.90/marfa-0.0.90-darwin-arm64.tar.gz"
-      sha256 "6827984c0637598767d8d990f377794ae888ae26368cf2cbadf6d81157dacf7c"
+      url "https://github.com/withmarfa/marfa/releases/download/v0.0.92/marfa-0.0.92-darwin-arm64.tar.gz"
+      sha256 "c929af323f6e120f39ffc5e4f740c4567104ed256505d42fc6b6d98098b62e84"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/withmarfa/marfa/releases/download/v0.0.90/marfa-0.0.90-linux-aarch64.tar.gz"
-      sha256 "a9e0c068ea9be34f47462b38e035b91486c07a57dcecd36152a48e1174fc0159"
+      url "https://github.com/withmarfa/marfa/releases/download/v0.0.92/marfa-0.0.92-linux-aarch64.tar.gz"
+      sha256 "01119fda17a54cb76f0aee77504695344225584bcac76deb6b130261a5a38724"
     end
     on_intel do
-      url "https://github.com/withmarfa/marfa/releases/download/v0.0.90/marfa-0.0.90-linux-x86_64.tar.gz"
-      sha256 "c4f28a781de3714eb14d2a2ac8b302eef30c0d0f8f6d1325497f9cbb7d49fb9d"
+      url "https://github.com/withmarfa/marfa/releases/download/v0.0.92/marfa-0.0.92-linux-x86_64.tar.gz"
+      sha256 "be476645cd1b00741e86044589a076fe1ca78ebac27b309b14f6e4a0b74fbbd8"
     end
   end
 
   def install
-    bin.install "marfa", "marfa-server"
+    # The server looks for cloudflared beside itself, so the three programs stay together
+    # in libexec and only the two commands are linked. Homebrew's own cloudflared is left alone.
+    libexec.install "marfa", "marfa-server", "cloudflared"
+    bin.install_symlink libexec/"marfa", libexec/"marfa-server"
     doc.install "NOTICES.txt"
   end
 
@@ -40,5 +43,6 @@ class Marfa < Formula
   test do
     assert_match "marfa #{version}", shell_output("#{bin}/marfa --version")
     assert_match "marfa-server #{version}", shell_output("#{bin}/marfa-server --version")
+    assert_match "cloudflared version", shell_output("#{libexec}/cloudflared --version")
   end
 end
